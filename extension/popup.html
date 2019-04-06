@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  	<head>
+		<style>
+			body {
+				margin: 0;
+				padding: 0;
+				height: 375px;
+				width: 250px;
+				border: white solid 1px;
+			}
+
+			button {
+				cursor: pointer;
+				font-weight: bold;
+				color: white;
+				font-size: 16px;
+				background-color: #d65b12;
+				border: 0;
+				border-radius: 3px;
+			}
+
+			#header {
+				height: 50px;
+				width: 100%;
+				border: gray solid 1px;
+				padding: 2px 2px;
+				background-color: #d65b12;
+			}
+
+			#logo {
+				display: inline-block;
+				margin-left: 4px;
+			}
+
+			#title {
+				font-size: 30px;
+				font-family: "Comic Sans MS", cursive, sans-serif;
+				font-weight: bold;
+				margin: 0 0 4px 10px;
+				color: white;
+				display: inline-block;
+				overflow: auto;
+			}
+
+        </style>
+		<script type="text/javascript" src="popup.js"></script>
+	</head>
+    <body>
+		<div id="header">
+			<img id="logo" src="images/48.png"/>
+			<span id="title">FAPFAP</span>
+		</div>
+		<div id="pickupLine">Here comes the pick up line</div>
+		<input type='button' id='generateLineBtn' value='Generate'>
+    </body>
+</html>
