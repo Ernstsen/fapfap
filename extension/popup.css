@@ -1,0 +1,74 @@
+div {
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+}
+
+body {
+	margin: 0;
+	padding: 0;
+	height: 300px;
+	width: 250px;
+}
+
+#generate_line_btn {
+	cursor: pointer;
+	font-weight: bold;
+	color: white;
+	font-size: 20px;
+	background-color: #d65b12;
+	border: 0;
+	border-radius: 3px;
+	display: flex;
+	align-self: center;
+	padding: 7px;
+}
+
+#header {
+	height: 50px;
+	width: 100%;
+	padding: 2px 2px;
+	background-color: #d65b12;
+}
+
+#logo {
+	display: inline-block;
+	margin-left: 4px;
+}
+
+#title {
+	font-size: 30px;
+	font-family: "Comic Sans MS", cursive, sans-serif;
+	font-weight: bold;
+	margin: 0 0 7px 10px;
+	color: white;
+	display: inline-block;
+	overflow: auto;
+}
+
+#body {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	margin: 10px 15px;
+	font-size: 16px;
+}
+
+#subtitle {
+	display: flex;
+	align-content: center;
+	text-align: center;
+	margin-bottom: 5px;
+	padding-bottom: 5px;
+	border-bottom: 2px lightgrey solid;
+}
+
+#pickup_line {
+	height: 135px;
+	color: grey;
+	display: inline-block;
+}
+
+#btn_div {
+	align-self: center;
+}

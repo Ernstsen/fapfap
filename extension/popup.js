@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', documentEvents  , false);
+document.addEventListener('DOMContentLoaded', documentEvents, false);
 
 function myAction(input) {
 	var xhttp = new XMLHttpRequest();
@@ -7,6 +7,8 @@ function myAction(input) {
 			input.innerHTML = "<b> Pickup line: </b> <br> " + xhttp.responseText;
 			input.style.color = "black"
 			copyStringToClipboard(xhttp.responseText)                                                                                
+		} else { // Make this less general - alert is being displayed several times????
+			alert("Server API is not responding")
 		}
 	};
 	xhttp.open("GET", "https://fapfap.e-software.dk/pickupline", true);
@@ -14,9 +16,9 @@ function myAction(input) {
 }
 
 function documentEvents() {    
-  document.getElementById('generate_line_btn').addEventListener('click', 
-    function() {myAction(document.getElementById('pickup_line'));
-  });
+  	document.getElementById('generate_line_btn').addEventListener('click', 
+   	 	function() {myAction(document.getElementById('pickup_line'));
+  	});
 }
 
 
