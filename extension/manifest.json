@@ -6,7 +6,8 @@
       "contextMenus",
       "tabs",
       "storage",
-      "notifications"
+      "notifications",
+      "activeTab"
     ],
     "background": {
       "scripts": ["background.js"],
