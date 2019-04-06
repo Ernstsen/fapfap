@@ -3,12 +3,8 @@ var clickedElement = null;
 
 document.addEventListener("mousedown", function(event){
     //right click
-    if(event.button == 2) {
+    if (event.button == 2) {
         clickedElement = event.target;
-        elemnt_id = clickedElement.id; 
-        if(elemnt_id === null) {
-            alert("Not able to find the ID of the input element. So the pickup line can't be returned\nThe line was...."); 
-        }
     }
 }, true);
 
