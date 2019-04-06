@@ -1,7 +1,7 @@
 import string, os 
 
 from keras.preprocessing.sequence import pad_sequences
-from keras.layers import Embedding, CuDNNLSTM, Dense, Dropout
+from keras.layers import Embedding, CuDNNLSTM, LSTM, Dense, Dropout
 from keras.preprocessing.text import Tokenizer
 from keras.callbacks import EarlyStopping
 from keras.models import Sequential
@@ -84,7 +84,8 @@ def create_model(max_sequence_len, total_words):
     
     model.add(Embedding(total_words, 10, input_length=input_len))
     model.add(CuDNNLSTM(100))
-   # model.add(Dropout(0.1))
+    #model.add(LSTM(100))
+    #model.add(Dropout(0.1))
     model.add(Dense(total_words, activation='softmax'))
 
     model.compile(loss='sparse_categorical_crossentropy', optimizer='adam')
@@ -92,7 +93,7 @@ def create_model(max_sequence_len, total_words):
     return model
 
 
-def fit_model(model, predictors, label, e=10, v=5):
+def fit_model(model, predictors, label, e=1, v=1):
     print('Training model')
     model.fit(predictors, label, epochs=e, verbose=v) 
     return model
@@ -109,7 +110,7 @@ def pipeline():
     print(k.tensorflow_backend._get_available_gpus())
     if not os.path.isdir('./models'):
         os.mkdir('./models')
-    data = read_dataset('dataset/MovieCorpus.txt')
+    data = read_dataset('dataset/all.txt')
     
     cleaned_data = clean_data(data)
     
