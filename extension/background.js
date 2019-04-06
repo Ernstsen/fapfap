@@ -16,7 +16,8 @@ chrome.contextMenus.onClicked.addListener(function(info, tab) {
 
 //This is our callback function
 function mycallBack(info, tab) {
-    chrome.tabs.sendMessage(tab.id, "idString", function(clickedElement){
-        elt.value = clickedElement.value();
-    }); 
+    chrome.tabs.sendMessage(tab.id, "idString")
+    // , function(clickedElement){
+    //     elt.value = clickedElement.value();
+    // }); 
 }

@@ -1,4 +1,3 @@
-//content script
 var clickedElement = null;
 
 document.addEventListener("mousedown", function(event){
@@ -11,7 +10,7 @@ document.addEventListener("mousedown", function(event){
 }, true);
 
 chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
-    if(request == "idString") {
+    if (request == "idString") {
         // findLowestChildTag(); //TODO: RUN THROUGH SUCH THAT WE GET THE RIGHT ONE !!!! 
         
         var xhttp = new XMLHttpRequest();

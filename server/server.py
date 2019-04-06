@@ -2,6 +2,7 @@ from flask import Flask
 from flask_cors import CORS
 # noinspection PyUnresolvedReferences
 from state import ServerState
+import argparse
 
 app = Flask(__name__)
 CORS(app)
@@ -30,4 +31,10 @@ def generate_line():
 
 
 if __name__ == "__main__":
-    app.run(host='0.0.0.0', port=80)
+    parser = argparse.ArgumentParser()
+    parser.add_argument("certificate_path")
+    parser.add_argument("private_key_path")
+    args = parser.parse_args()
+
+    app.run(host='0.0.0.0', port=443, ssl_context=(args.certificate_path,
+                                                   args.private_key_path))
