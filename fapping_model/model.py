@@ -64,7 +64,7 @@ def tokenize(corpus):
 def pad_text(token_sequences, total_words):
     print('Padding data')
     max_length = 0 
-    for i in token_sequences:
+    for i in tqdm(token_sequences):
         if len(i) > max_length:
             max_length = len(i)
 
