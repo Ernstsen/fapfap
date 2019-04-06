@@ -11,9 +11,8 @@
 			body {
 				margin: 0;
 				padding: 0;
-				height: 375px;
+				height: 300px;
 				width: 250px;
-				border: white solid 1px;
 			}
 
 			#generate_line_btn {
@@ -25,9 +24,8 @@
 				border: 0;
 				border-radius: 3px;
 				display: flex;
-				width: 20;
 				align-self: center;
-				padding: 5px;
+				padding: 7px;
 			}
 
 			#header {
@@ -64,18 +62,22 @@
 				display: flex;
 				align-content: center;
 				text-align: center;
-				width: 230px;
 				margin-bottom: 5px;
 				padding-bottom: 5px;
-				border-bottom: 2px grey solid;
+				border-bottom: 2px lightgrey solid;
+			}
+
+			#pickup_line {
+				height: 135px;
+				color: grey;
+				display: inline-block;
 			}
 
 			#btn_div {
-				margin-top: 200px;
 				align-self: center;
 			}
         </style>
-        <!--</script type="text/javascript" src="content.js">-->
+		<script type="text/javascript" src="popup.js"></script>
 	</head>
     <body>
 		<div id="header">
@@ -84,14 +86,14 @@
 		</div>
 		<div id="body">
 			<span id="subtitle">Flirtatious App for People Failing At Pickups</span>
-			<div id="pickup_line">Here comes the pick up line</div>
+			<div id="pickup_line">Press the button below to generate a pickup line!</div>
 			<div id="btn_div">
 				<button id="generate_line_btn">Generate</button>
 			</div>
 		</div>
 
-		<script type="text/javascript" src="popup.js"></script>
+		<!-- <script type="text/javascript" src="popup.js"></script>
+		<div id="pickupLine">Here comes the pick up line</div>
+		<input type='button' id='generateLineBtn' value='Generate'> -->
     </body>
-    
-	<!--</script type="text/javascript" src="popup.js">-->
 </html>
