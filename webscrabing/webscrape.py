@@ -72,7 +72,7 @@ def handle_csv_data_set(path_to_dataset):
     data = pd.read_csv(path_to_dataset)
     with open("dialog_line_files/ubuntu_dialog_lines.txt", "w") as write_file:
         for _, row in data.iterrows():
-            write_file.write(str(row['text']))
+            write_file.write(str(row['text']) + "\n")
         
 
 def handle_movie_lines(path_to_dataset):
@@ -82,10 +82,14 @@ def handle_movie_lines(path_to_dataset):
                 sentence = line.split("+++$+++")[-1]
                 write_file.write(sentence)
 
-
-# movie_dialog har spaces foran alle liner
+def remove_newlines_in_file(path_to_file):
+    with open(path_to_file, "r") as read_file:
+        with open(path_to_file + "_cleaned", "w") as write_file:
+            for line in read_file:
+                write_file.write(line.strip() + "\n")
 
 if __name__ == "__main__":
     #handle_movie_lines("movie_lines.txt")
     #handle_csv_data_set("/Users/jesperbrink/Downloads/ubuntu-dialogue-corpus/Ubuntu-dialogue-corpus/dialogueText_301.csv")
     #pickuplines_galore_dot_com() 
+    #remove_newlines_in_file("dialog_line_files/movie_dialog_lines.txt")

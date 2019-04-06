@@ -14,25 +14,9 @@ chrome.contextMenus.onClicked.addListener(function(info, tab) {
     }
 });
 
-// //This is our callback function
+//This is our callback function
 function mycallBack(info, tab) {
     chrome.tabs.sendMessage(tab.id, "idString", function(clickedElement){
         elt.value = clickedElement.value();
     }); 
 }
-
-
-// // chrome.contextMenus.onClicked.addListener(getPickUpLine)
-// chrome.contextMenus.onClicked.addListener(test);
-
-// getPickUpLine = function (){
-//     alert("AJAX");
-//     //     var xhttp = new XMLHttpRequest(); 
-//     //     xhttp.onreadystatechange = function() {
-//     //         if (this.readyState == 4 && this.status == 200){
-//     //             alert("WE HAVE SUCCEEDED IN THE WAY OF MAKING OF AN AJAX CALL");  
-//     //         }
-//     //     }; 
-        
-//     //     xhttp.open("GET", "http://gooele.dk", true); // true makes sure that the rest of the html still works while do the back-end call asynchronous. 
-//     //     xhttp.send();
