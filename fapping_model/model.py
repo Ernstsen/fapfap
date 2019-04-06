@@ -1,7 +1,7 @@
 import string, os 
 
 from keras.preprocessing.sequence import pad_sequences
-from keras.layers import Embedding, LSTM, Dense, Dropout
+from keras.layers import Embedding, CuDNNLSTM, LSTM, Dense, Dropout
 from keras.preprocessing.text import Tokenizer
 from keras.callbacks import EarlyStopping
 from keras.models import Sequential
@@ -53,7 +53,6 @@ def tokenize(corpus):
 
     token_sequences = []
     for line in tqdm(corpus):
-        print(line)
         token_list = tokenizer.texts_to_sequences([line])[0]
         if len(token_list) > 15:
             continue 
@@ -70,12 +69,12 @@ def pad_text(token_sequences, total_words):
     for i in tqdm(token_sequences):
         if len(i) > max_length:
             max_length = len(i)
-    
     padded_sequences = np.array(pad_sequences(token_sequences,
                                               maxlen=max_length,
                                               padding='pre'))
     predictors, label = padded_sequences[:,:-1], padded_sequences[:,-1]
-    label = ku.to_categorical(label, num_classes=total_words)
+    #print(total_words)
+    #label = ku.to_categorical(label, num_classes=total_words)
     return predictors, label, max_length
 
 def create_model(max_sequence_len, total_words):
@@ -84,16 +83,17 @@ def create_model(max_sequence_len, total_words):
     model = Sequential()
     
     model.add(Embedding(total_words, 10, input_length=input_len))
-    model.add(LSTM(100))
-    model.add(Dropout(0.1))
+    model.add(CuDNNLSTM(100))
+    #model.add(LSTM(100))
+    #model.add(Dropout(0.1))
     model.add(Dense(total_words, activation='softmax'))
 
-    model.compile(loss='categorical_crossentropy', optimizer='adam')
+    model.compile(loss='sparse_categorical_crossentropy', optimizer='adam')
     
     return model
 
 
-def fit_model(model, predictors, label, e=100, v=5):
+def fit_model(model, predictors, label, e=1, v=1):
     print('Training model')
     model.fit(predictors, label, epochs=e, verbose=v) 
     return model
@@ -110,7 +110,7 @@ def pipeline():
     print(k.tensorflow_backend._get_available_gpus())
     if not os.path.isdir('./models'):
         os.mkdir('./models')
-    data = read_dataset('dataset/MovieCorpus.txt')
+    data = read_dataset('dataset/all.txt')
     
     cleaned_data = clean_data(data)
     
