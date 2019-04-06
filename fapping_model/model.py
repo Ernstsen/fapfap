@@ -55,7 +55,10 @@ def tokenize(corpus):
     token_sequences = []
     for line in tqdm(corpus):
         token_list = tokenizer.texts_to_sequences([line])[0]
+        if len(token_list) > 15:
+            continue 
         for i in range(1, len(token_list)):
+            
             token_sequences.append(token_list[:i+1])
     
     return tokenizer, total_words, token_sequences
@@ -67,7 +70,7 @@ def pad_text(token_sequences, total_words):
     for i in tqdm(token_sequences):
         if len(i) > max_length:
             max_length = len(i)
-
+    
     # padded_sequences = np.array(pad_sequences(token_sequences,
     #                                           maxlen=max_length,
     #                                           padding='pre'))
