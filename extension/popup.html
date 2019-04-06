@@ -2,6 +2,12 @@
 <html>
   	<head>
 		<style>
+			div {
+				box-sizing: border-box;
+    			-moz-box-sizing: border-box;
+    			-webkit-box-sizing: border-box;
+			}
+
 			body {
 				margin: 0;
 				padding: 0;
@@ -10,20 +16,23 @@
 				border: white solid 1px;
 			}
 
-			button {
+			#generate_line_btn {
 				cursor: pointer;
 				font-weight: bold;
 				color: white;
-				font-size: 16px;
+				font-size: 20px;
 				background-color: #d65b12;
 				border: 0;
 				border-radius: 3px;
+				display: flex;
+				width: 20;
+				align-self: center;
+				padding: 5px;
 			}
 
 			#header {
 				height: 50px;
 				width: 100%;
-				border: gray solid 1px;
 				padding: 2px 2px;
 				background-color: #d65b12;
 			}
@@ -43,6 +52,28 @@
 				overflow: auto;
 			}
 
+			#body {
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				margin: 10px 15px;
+				font-size: 16px;
+			}
+
+			#subtitle {
+				display: flex;
+				align-content: center;
+				text-align: center;
+				width: 230px;
+				margin-bottom: 5px;
+				padding-bottom: 5px;
+				border-bottom: 2px grey solid;
+			}
+
+			#btn_div {
+				margin-top: 200px;
+				align-self: center;
+			}
         </style>
         <!--</script type="text/javascript" src="content.js">-->
 	</head>
@@ -51,8 +82,14 @@
 			<img id="logo" src="images/48.png"/>
 			<span id="title">FAPFAP</span>
 		</div>
-		<div id="pickup_line">Here comes the pick up line</div>
-		<button id="generate_line_btn">Generate</button>
+		<div id="body">
+			<span id="subtitle">Flirtatious App for People Failing At Pickups</span>
+			<div id="pickup_line">Here comes the pick up line</div>
+			<div id="btn_div">
+				<button id="generate_line_btn">Generate</button>
+			</div>
+		</div>
+
 		<script type="text/javascript" src="popup.js"></script>
     </body>
     
