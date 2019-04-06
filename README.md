@@ -1,2 +1,2 @@
 # fapfap
-Flirtatious App for People Failing At Pickups
+Flirtatious Assistant for People Failing At Pickups
