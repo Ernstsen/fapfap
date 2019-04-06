@@ -1,3 +1,7 @@
+import string, os 
+os.environ["CUDA_DEVICE_ORDER"] = "PCI_BUS_ID"
+os.environ["CUDA_VISIBLE_DEVICES"] = ""
+
 from keras.preprocessing.sequence import pad_sequences
 from keras.layers import Embedding, LSTM, Dense, Dropout
 from keras.preprocessing.text import Tokenizer
@@ -16,7 +20,7 @@ seed(1)
 
 import pandas as pd
 import numpy as np
-import string, os 
+
 
 import warnings
 warnings.filterwarnings("ignore")
