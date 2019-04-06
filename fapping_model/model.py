@@ -1,7 +1,7 @@
 import string, os 
 
 from keras.preprocessing.sequence import pad_sequences
-from keras.layers import Embedding, CuDNNLSTM, LSTM, Dense, Dropout
+from keras.layers import Embedding, CuDNNLSTM, Dense, Dropout
 from keras.preprocessing.text import Tokenizer
 from keras.callbacks import EarlyStopping
 from keras.models import Sequential
@@ -93,7 +93,7 @@ def create_model(max_sequence_len, total_words):
     return model
 
 
-def fit_model(model, predictors, label, e=1, v=1):
+def fit_model(model, predictors, label, e=13, v=1):
     print('Training model')
     model.fit(predictors, label, epochs=e, verbose=v) 
     return model
