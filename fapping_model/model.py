@@ -1,6 +1,6 @@
 import string, os 
 os.environ["CUDA_DEVICE_ORDER"] = "PCI_BUS_ID"
-os.environ["CUDA_VISIBLE_DEVICES"] = ""
+os.environ["CUDA_VISIBLE_DEVICES"] = "-1"
 
 from keras.preprocessing.sequence import pad_sequences
 from keras.layers import Embedding, LSTM, Dense, Dropout
@@ -71,10 +71,10 @@ def pad_text(token_sequences, total_words):
         if len(i) > max_length:
             max_length = len(i)
     
-    # padded_sequences = np.array(pad_sequences(token_sequences,
-    #                                           maxlen=max_length,
-    #                                           padding='pre'))
-    predictors, label = token_sequences[:,:-1], token_sequences[:,-1]
+    padded_sequences = np.array(pad_sequences(token_sequences,
+                                              maxlen=max_length,
+                                              padding='pre'))
+    predictors, label = padded_sequences[:,:-1], padded_sequences[:,-1]
     label = ku.to_categorical(label, num_classes=total_words)
     return predictors, label, max_length
 
