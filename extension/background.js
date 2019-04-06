@@ -10,22 +10,15 @@ var contextMenu = {
 };
 chrome.contextMenus.create(contextMenu)
 chrome.contextMenus.onClicked.addListener(function(info, tab) {
-    alert("WORK"); 
     if (info.menuItemId === "fapfap") { // here's where you'll need the ID
-        alert(info.menuItemId);
-        getPickUpLine()
         mycallBack(info, tab)
     }
 });
 
-getPickUpLine = function (){
-    alert("Making pickup line")
-}
 
 // //This is our callback function
 function mycallBack(info, tab) {
     chrome.tabs.sendMessage(tab.id, "idString", function(clickedElement){
-        alert("in my call back"); 
         elt.value = clickedElement.value();
         // elt.value = "My response"; 
     }); 
