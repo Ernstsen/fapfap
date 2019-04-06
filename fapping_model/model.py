@@ -68,10 +68,10 @@ def pad_text(token_sequences, total_words):
         if len(i) > max_length:
             max_length = len(i)
 
-    padded_sequences = np.array(pad_sequences(token_sequences,
-                                              maxlen=max_length,
-                                              padding='pre'))
-    predictors, label = padded_sequences[:,:-1], padded_sequences[:,-1]
+    # padded_sequences = np.array(pad_sequences(token_sequences,
+    #                                           maxlen=max_length,
+    #                                           padding='pre'))
+    predictors, label = token_sequences[:,:-1], token_sequences[:,-1]
     label = ku.to_categorical(label, num_classes=total_words)
     return predictors, label, max_length
 
@@ -80,7 +80,7 @@ def create_model(max_sequence_len, total_words):
     input_len = max_sequence_len - 1
     model = Sequential()
     
-    model.add(Embedding(total_words, 10, input_length=input_len))
+    model.add(Embedding(total_words, 10, input_length=input_len, mask_zero = True))
     model.add(LSTM(100))
     model.add(Dropout(0.1))
     model.add(Dense(total_words, activation='softmax'))
