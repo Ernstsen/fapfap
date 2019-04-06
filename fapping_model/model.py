@@ -1,3 +1,5 @@
+import string, os 
+
 from keras.preprocessing.sequence import pad_sequences
 from keras.layers import Embedding, LSTM, Dense, Dropout
 from keras.preprocessing.text import Tokenizer
@@ -16,7 +18,7 @@ seed(1)
 
 import pandas as pd
 import numpy as np
-import string, os 
+
 
 import warnings
 warnings.filterwarnings("ignore")
@@ -51,7 +53,10 @@ def tokenize(corpus):
     token_sequences = []
     for line in tqdm(corpus):
         token_list = tokenizer.texts_to_sequences([line])[0]
+        if len(token_list) > 15:
+            continue 
         for i in range(1, len(token_list)):
+            
             token_sequences.append(token_list[:i+1])
     
     return tokenizer, total_words, token_sequences
@@ -59,14 +64,17 @@ def tokenize(corpus):
 
 def pad_text(token_sequences, total_words):
     print('Padding data')
-    max_length = max([len(x) for x in token_sequences])
+    max_length = 0 
+    for i in tqdm(token_sequences):
+        if len(i) > max_length:
+            max_length = len(i)
+    
     padded_sequences = np.array(pad_sequences(token_sequences,
                                               maxlen=max_length,
                                               padding='pre'))
     predictors, label = padded_sequences[:,:-1], padded_sequences[:,-1]
     label = ku.to_categorical(label, num_classes=total_words)
     return predictors, label, max_length
-
 
 def create_model(max_sequence_len, total_words):
     print('Creating model')
