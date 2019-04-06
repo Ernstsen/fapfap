@@ -7,6 +7,7 @@ from keras.callbacks import EarlyStopping
 from keras.models import Sequential
 import keras.utils as ku 
 from tqdm import tqdm
+from keras import backend as k
 
 from pickle import dump
 
@@ -105,6 +106,8 @@ def save_and_dump(model, tokenizer):
 
 
 def pipeline():
+    print(k.tensorflow_backend._get_available_gpus())
+
     data = read_dataset('dataset/MovieCorpus.txt')
     
     cleaned_data = clean_data(data)
