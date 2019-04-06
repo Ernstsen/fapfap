@@ -33,7 +33,7 @@ def read_dataset(source):
 
 
 def clean_line(line):
-    return [x.lower() for x in line if x not in string.punctuation]
+    return ''.join([x.lower() for x in line if x not in string.punctuation])
 
 
 def clean_data(data):
@@ -53,6 +53,7 @@ def tokenize(corpus):
 
     token_sequences = []
     for line in tqdm(corpus):
+        print(line)
         token_list = tokenizer.texts_to_sequences([line])[0]
         if len(token_list) > 15:
             continue 
@@ -107,7 +108,8 @@ def save_and_dump(model, tokenizer):
 
 def pipeline():
     print(k.tensorflow_backend._get_available_gpus())
-
+    if not os.path.isdir('./models'):
+        os.mkdir('./models')
     data = read_dataset('dataset/MovieCorpus.txt')
     
     cleaned_data = clean_data(data)
