@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
 
-flask run
+sudo python3 server/server.py
