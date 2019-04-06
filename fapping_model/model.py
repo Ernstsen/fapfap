@@ -59,14 +59,17 @@ def tokenize(corpus):
 
 def pad_text(token_sequences, total_words):
     print('Padding data')
-    max_length = max([len(x) for x in token_sequences])
+    max_length = 0 
+    for i in token_sequences:
+        if len(i) > max_length:
+            max_length = len(i)
+
     padded_sequences = np.array(pad_sequences(token_sequences,
                                               maxlen=max_length,
                                               padding='pre'))
     predictors, label = padded_sequences[:,:-1], padded_sequences[:,-1]
     label = ku.to_categorical(label, num_classes=total_words)
     return predictors, label, max_length
-
 
 def create_model(max_sequence_len, total_words):
     print('Creating model')
