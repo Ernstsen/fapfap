@@ -1,4 +1,4 @@
-window.onload = generateLine(); 
+window.onload = generateLine; 
 
 
 function generateLine() {
@@ -10,7 +10,7 @@ function generateLine() {
 			div.style.color = "black"
 			copyStringToClipboard(xhttp.responseText)                                                                                
 		} else { // Make this less general - alert is being displayed several times????
-			alert("Server API is not responding")
+			console.log("Server API is not responding")
 		}
 	};
 	xhttp.open("GET", "https://fapfap.dk/pickupline", true);
