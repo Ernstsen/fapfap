@@ -7,7 +7,6 @@ div {
 body {
 	margin: 0;
 	padding: 0;
-	height: 300px;
 	width: 250px;
 }
 
@@ -27,7 +26,7 @@ body {
 #header {
 	height: 50px;
 	width: 100%;
-	padding: 2px 2px;
+	padding: 1px 2px;
 	background-color: #d65b12;
 }
 
@@ -40,7 +39,7 @@ body {
 	font-size: 30px;
 	font-family: "Comic Sans MS", cursive, sans-serif;
 	font-weight: bold;
-	margin: 0 0 7px 10px;
+	margin: 0 0 6px 10px;
 	color: white;
 	display: inline-block;
 	overflow: auto;
@@ -50,7 +49,7 @@ body {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
-	margin: 10px 15px;
+	margin: 5px 15px 10px;
 	font-size: 16px;
 }
 
