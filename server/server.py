@@ -33,8 +33,6 @@ def generate_line():
     predictor = Predictor.getInstance("fapping_model/models/model.h5", "fapping_model/models/tokenizer.pkl")
     return predictor.predict()
 
-# return 'Dig. Mig. Spandauer.' IF ISPRIME
-
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
