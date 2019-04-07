@@ -16,7 +16,7 @@ chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
                 copyStringToClipboard(xhttp.responseText)
             }
         };
-        xhttp.open("GET", "https://fapfap.e-software.dk/pickupline", true);
+        xhttp.open("GET", "https://fapfap.dk/pickupline", true);
         xhttp.send();
     }
 })

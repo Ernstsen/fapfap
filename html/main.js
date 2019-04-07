@@ -1,11 +1,13 @@
-document.addEventListener('DOMContentLoaded', documentEvents, false);
+window.onload = generateLine(); 
 
-function myAction(input) {
+
+function generateLine() {
+    var div = document.getElementById("pickup_line");
 	var xhttp = new XMLHttpRequest();
 	xhttp.onreadystatechange = function() {
 		if (this.readyState == 4 && this.status == 200) {
-			input.innerHTML = "<b> Pickup line: </b> <br> " + xhttp.responseText;
-			input.style.color = "black"
+			div.innerHTML = "<b> Pickup line: </b> <br> " + xhttp.responseText;
+			div.style.color = "black"
 			copyStringToClipboard(xhttp.responseText)                                                                                
 		} else { // Make this less general - alert is being displayed several times????
 			alert("Server API is not responding")
@@ -14,13 +16,6 @@ function myAction(input) {
 	xhttp.open("GET", "https://fapfap.dk/pickupline", true);
 	xhttp.send(); 
 }
-
-function documentEvents() {    
-  	document.getElementById('generate_line_btn').addEventListener('click', 
-   	 	function() {myAction(document.getElementById('pickup_line'));
-  	});
-}
-
 
 function copyStringToClipboard (str) {
 	// Create new element
