@@ -6,4 +6,4 @@ Fapfap is the solution for you!
 
 Fapfap is a simple service producing pickup lines wherever and whenever you are in need of that vital help!
 
-The pickup lines can be retrieved from a simple REST endpoint [HERE](https://fapfap.dk/pickupline)
+The service can be accessed [HERE](https://fapfap.dk/)
