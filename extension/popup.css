@@ -7,7 +7,6 @@ div {
 body {
 	margin: 0;
 	padding: 0;
-	height: 300px;
 	width: 250px;
 }
 
@@ -50,7 +49,7 @@ body {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
-	margin: 10px 15px;
+	margin: 5px 15px 10px;
 	font-size: 16px;
 }
 
