@@ -30,7 +30,7 @@ body {
 	background-color: #d65b12;
 }
 
-#logo {
+.logo {
 	display: inline-block;
 	margin-left: 4px;
 }
@@ -39,10 +39,11 @@ body {
 	font-size: 30px;
 	font-family: "Comic Sans MS", cursive, sans-serif;
 	font-weight: bold;
-	margin: 0 8px 6px 10px;
+	margin: 0 0px 6px 6px;
 	color: white;
 	display: inline-block;
 	overflow: auto;
+	text-decoration: none;
 }
 
 #body {
