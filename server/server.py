@@ -1,3 +1,5 @@
+import argparse
+
 from flask import Flask, send_from_directory
 from flask_cors import CORS
 # noinspection PyUnresolvedReferences
@@ -49,11 +51,11 @@ def generate_line():
 
 
 if __name__ == "__main__":
-    # parser = argparse.ArgumentParser()
-    # parser.add_argument("certificate_path")
-    # parser.add_argument("private_key_path")
-    # args = parser.parse_args()
+    parser = argparse.ArgumentParser()
+    parser.add_argument("certificate_path")
+    parser.add_argument("private_key_path")
+    args = parser.parse_args()
     #
-    app.run(host='0.0.0.0', port=80)
-    # app.run(host='0.0.0.0', port=443, ssl_context=(args.certificate_path,
-    #                                                args.private_key_path))
+    # app.run(host='0.0.0.0', port=80)
+    app.run(host='0.0.0.0', port=443, ssl_context=(args.certificate_path,
+                                                   args.private_key_path))
