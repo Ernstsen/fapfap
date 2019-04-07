@@ -11,7 +11,7 @@ function myAction(input) {
 			alert("Server API is not responding")
 		}
 	};
-	xhttp.open("GET", "https://fapfap.e-software.dk/pickupline", true);
+	xhttp.open("GET", "https://fapfap.dk/pickupline", true);
 	xhttp.send(); 
 }
 
