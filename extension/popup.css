@@ -44,6 +44,12 @@ body {
 	display: inline-block;
 	overflow: auto;
 	text-decoration: none;
+	transition: color 0.3s ease;
+	text-shadow: 2px 2px black;
+}
+
+#title:hover {
+	color: lightgrey;
 }
 
 #body {
