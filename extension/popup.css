@@ -27,7 +27,7 @@ body {
 #header {
 	height: 50px;
 	width: 100%;
-	padding: 2px 2px;
+	padding: 1px 2px;
 	background-color: #d65b12;
 }
 
@@ -40,7 +40,7 @@ body {
 	font-size: 30px;
 	font-family: "Comic Sans MS", cursive, sans-serif;
 	font-weight: bold;
-	margin: 0 0 7px 10px;
+	margin: 0 0 6px 10px;
 	color: white;
 	display: inline-block;
 	overflow: auto;
