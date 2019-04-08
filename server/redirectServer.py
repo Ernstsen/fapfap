@@ -7,15 +7,20 @@ app = Flask(__name__)
 CORS(app)
 state = ServerState()
 
+baseUrl= "fapfap.e-software.dk"
 
 @app.route('/')
 def root():
-    return redirect("https://fapfap.dk")
+    return redirect("https://" + baseUrl)
 
 
 @app.route('/pickupline')
 def pickup():
-    return redirect("https://fapfap.dk/pickupline")
+    return redirect("https://" + baseUrl + "/pickupline")
+
+@app.route('/status')
+def status():
+    return redirect("https://" + baseUrl + "/pickupline")
 
 
 if __name__ == "__main__":
